@@ -1,0 +1,16 @@
+parameters:
+    ezstudioui.provider.site_accesses.class: Ez\SiteAccessGroupStudioBundle\ApplicationConfig\Providers\SiteAccesses
+services:
+    ezstudioui.provider.site_accesses:
+        class: %ezstudioui.provider.site_accesses.class%
+        arguments:
+         - '@ezpublish.config.resolver'
+         - '%ezpublish.siteaccess.list%'
+         - '@ezstudioui.reverse_matcher'
+         - '%ezpublish.siteaccess.groups%'
+         - '@ezpublish.siteaccess'
+         - '@request_stack'
+        tags:
+          -
+            name: ezsystems.platformui.application_config_provider
+            key: 'studioSiteaccesses'
